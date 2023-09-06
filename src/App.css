@@ -1,74 +1,128 @@
 @import 'react-big-calendar/lib/addons/dragAndDrop/styles';
+
 .App {
   text-align: center;
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(110deg,#526ecd,#fd6363,#f78ff7,#21e795);
+  background-image: linear-gradient(110deg, #526ecd, #fd6363, #f78ff7, #21e795);
   flex-direction: column;
 
 }
-.Main{
-  
+
+.Main {
+
   display: flex;
   text-align: center;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   /*background-image: linear-gradient(110deg,#526ecd,#fd6363,#f78ff7,#21e795);
-*/background-color: #b1acac;
+*/
+  background-color: #F6F4EB;
 }
-.auth-form-container, .login-form, .register-form{
-  display:flex;
+
+.auth-form-container,
+.login-form,
+.register-form {
+  display: flex;
   flex-direction: column;
 
 
   /* background-image:linear-gradient(72deg,#526ecd,#21e795,#f78ff7) ; */
 }
-.auth-label,.title{
+
+.auth-label,
+.title {
   text-align: left;
   padding: 0.25rem 0;
 }
-input{
+
+input {
   margin: 0.5rem 0;
   padding: 1rem;
   border-color: white;
   border-radius: 18px;
 }
-.submit-btn{
+
+.submit-btn {
   border: none;
-  background-color: #21e795;
+  background-color: #91C8E4;
   padding: 20px;
   border-radius: 20px;
 
 }
-.link-btn{
-  border:none;
+
+.link-btn {
+  border: none;
   background: none;
-  color: #0163ae;
+  color: #91C8E4;
   text-decoration: underline;
 }
-.title{
-    font-size: 5vh;
+
+.title {
+  font-size: 5vh;
 }
-.btn-toolbar,.btn-group{
+
+.btn-toolbar,
+.btn-group {
   text-align: center;
   display: flex;
-  flex-direction:row ;  
+  flex-direction: row;
 }
-.btn-primary{
+
+.btn-primary {
   margin: 0.25rem;
   padding: 10px 125px;
-  border-radius:17px ;
+  border-radius: 17px;
 }
-.nav-bar{
-  background-image: linear-gradient(110deg,#526ecd,#fd6363,#f78ff7,#21e795);
+
+.nav-bar {
+
+  /* background-image: linear-gradient(110deg,#526ecd,#fd6363,#f78ff7,#21e795); */
+  background-color: #749BC2;
+
 }
-.calendar{
-  background-color: #a9adb0;
+
+.calendar {
+  /*display: flex;*/
+
+  background-color: #F6F4EB;
+  max-height: 87.5vh;
+
 }
-.nav-link{
+
+.nav-link {
   border: none;
-  
+
+}
+
+.nav-bar {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  position: relative;
+}
+
+.calendar-container {
+  display: flexbox !important;
+}
+.hIcojO {
+  padding: 1% !important;
+}
+@media screen and (min-width: 100px) {
+  .kxPzAU{
+    /*position: absolute !important;*/
+    display: flex !important;
+  }
+  .iWIBpX {
+     display: block !important;
+}
+}
+.sign-btn{
+  position: absolute;
+  top: 5;
+  right: 0;
+  display: flex;
+
 }

@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Model from "../component/model/Model";
+import EditMeeting from "../component/model/EditMeetingModel"
 export  const HomePage=()=>{
+    const [buttonPopUp,setButtonPopup]=useState(false);
+    const [popUp,setPopUp]=useState(true);
     return(
 
         <div className="Main">
-            <main class>
+            <main>
                 <h1>Popup deneme</h1>
                 <br />
-                <button>Open popup</button>
+                <button onClick={()=>setButtonPopup(true)}>Open popup</button>
                 
             </main>
-            <Model trigger={true}>
-                    <h3>Biz Burdayızz</h3>
-                </Model>
+            <Model trigger={buttonPopUp} setTrigger={setButtonPopup}>
+            </Model>
+            <EditMeeting trigger={popUp} setTrigger={setPopUp}>
+                sa
+            </EditMeeting>
         </div>
 
     );

@@ -8,6 +8,7 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import{CalendarPage} from './pages/CalendarPage';
 import {HomePage} from './pages/Homepage';
+import EditMeeting from "./component/model/EditMeetingModel"
 export default function App(){
   return(
     
