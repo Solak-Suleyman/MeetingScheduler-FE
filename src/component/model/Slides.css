@@ -1,0 +1,152 @@
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .slide-container {
+    display: flex; /* Create a flex container for slides */
+    flex-direction: row;
+    transition: transform 0.5s ease-in-out; /* Add a smooth transform transition */
+    max-height: 90%;
+    height: 100%;
+  }
+  
+  .slide-inner {
+    flex: 0 0 100%; /* Set the width of each slide */
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+
+.right-arrow,
+.left-arrow {
+    position: absolute;
+    top: 30%;
+    transform: translate(0, 50%);
+    font-size: 45px;
+    color: #fff;
+    z-index: 100 !important;
+}
+
+.left-arrow {
+    left: 32px;
+}
+
+.right-arrow {
+    right: 32px;
+}
+
+.right-arrow:hover,
+.left-arrow:hover {
+    cursor: pointer;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center; /* Center the dots horizontally */
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .dots {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px; /* Add some spacing between dots */
+    cursor: pointer;
+  }
+  
+  .dots.active {
+    background-color: #555; /* Style the active dot differently */
+  }
+  @media screen and (max-width: 768px) {
+    header {
+        padding: 5px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        padding: 0.5rem;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 15px 20px;
+    }
+
+    #features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 100%;
+    }
+
+    .feature img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature h3 {
+        font-size: 1.25rem;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+    .slide-inner{
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+}
+
+/* Media query for 480px width */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 2px 0;
+    }
+
+    nav ul li a {
+        padding: 0.4rem;
+    }
+
+    #hero h1 {
+        font-size: 1.75rem;
+    }
+
+    #hero p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 12px 18px;
+    }
+
+    .feature img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .feature h3 {
+        font-size: 1rem;
+    }
+
+    .feature p {
+        font-size: 0.8rem;
+    }
+}

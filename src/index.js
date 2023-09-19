@@ -6,18 +6,24 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
-import{CalendarPage} from './pages/CalendarPage';
-import {HomePage} from './pages/Homepage';
+import { CalendarPage } from './pages/CalendarPage';
+import { HomePage } from './pages/Homepage';
+import ImageSlider from './component/model/ImageSlider';
 import EditMeeting from "./component/model/EditMeetingModel"
-export default function App(){
-  return(
-    
+import JobDone from './component/model/JobDone';
+export default function App() {
+  return (
+
     <BrowserRouter>
       <Routes>
-        <Route path= "/calendar" element={<CalendarPage/>} /> 
-        <Route path= "/login" element={<Login/>} />
-        <Route path= "/register" element={<Register/>} />
-        <Route path='/popup' element={<HomePage/>}/>
+        <Route path='/slide' element={<ImageSlider/>}/>
+        <Route path='/' element={<HomePage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path='/job' element={<JobDone/>} />
+
+
       </Routes>
     </BrowserRouter>
   )

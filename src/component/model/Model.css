@@ -1,4 +1,21 @@
-.popup {
+.decision-btn{
+  width: 100px;
+  padding: 10px;
+  margin-left: 20%;
+  margin-top: 20px;
+  background-color: #4682A9;
+}
+.decision{
+  display: flex;
+  justify-content: center;
+}
+.decision-btns{
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+}
+.popup ,.popups{
   display: flex;
   position: fixed;
   top: 0;
@@ -12,13 +29,16 @@
   z-index: 1000;
 
 }
+.popups{
+  z-index: 1001 !important;
+}
 
 .popup-inner {
 
   position: relative;
   padding: 32px;
-  width: 100%;
-  max-width: 90vh;
+  width: 65%;
+  /*max-width: 90vh;*/
   background-color: #FFF;
 }
 
@@ -88,8 +108,24 @@ a {
   --input-width: 65vh !important;
 
 }
-@media screen and (min-width: 100px) {
+@media (max-width: 480px){
   .kxPzAU{
     position: absolute;
   }
+  .popup-inner{
+
+    max-width:100% ;
+  }
+}
+.logout{
+  position: relative;
+  padding: 32px;
+  width: 25%;
+  /*max-width: 90vh;*/
+  background-color: #FFF;
+}
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
 }

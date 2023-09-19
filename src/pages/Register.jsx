@@ -26,7 +26,13 @@ export const Register = (props) => {
             status: 'A'
         };
         console.log(data);
-        axios.post('https://localhost:7162/api/register', data).catch(error => { console.error(error); });
+        axios.post('http://localhost:7162/api/register', data)
+        .then(response=>{
+            if (response.status===200) {
+                goto()
+            }
+        })
+        .catch(error => { console.error(error); });
 
     }
     // useEffect(()=>{

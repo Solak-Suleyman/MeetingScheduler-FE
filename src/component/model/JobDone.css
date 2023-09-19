@@ -1,0 +1,23 @@
+.popup-inner-job{
+    display: block flex;
+    flex-direction: column;
+    width: 35%;
+    height: 35%;
+    background: #fff;
+    align-items: center;
+    padding: 32px;
+    justify-content: space-around;
+    
+}
+.popup-inner-job p{
+    font-size: larger;
+    margin-top: 5px;
+
+    color: rgb(10, 201, 10);
+}
+.popup-inner-job .submit-btn{
+    width: 250px;
+}
+.popup-inner-job .close-btn-job{
+    margin-left:100% ;        
+}

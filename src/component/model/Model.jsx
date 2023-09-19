@@ -6,6 +6,7 @@ import MultiSelect from 'react-multiple-select-dropdown-lite'
 import 'react-multiple-select-dropdown-lite/dist/index.css'
 import Select from "react-dropdown-select";
 import { TimeGrid } from 'react-big-calendar'
+import JobDone from './JobDone';
 
 const Model = (props) => {
   let listItems = [];
@@ -24,6 +25,7 @@ const Model = (props) => {
   const [toDate, setToDate] = useState('');
   const [roomId, setRoomId] = useState('');
   const [usersIds, setUsersIds] = useState('');
+  const [jobPopup, setJobPopup] = useState(false);
 
   const handleOnchange = val => {
     setUsersIds(val.split(",").map(Number))
@@ -43,8 +45,11 @@ const Model = (props) => {
       userIds: usersIds
     }
     console.log(meeting);
-    axios.post('https:/localhost:7162/api/meetings/addmeeting', meeting)
+    axios.post('http://localhost:7162/api/meetings/addmeeting', meeting)
       .then(response => {
+        if (response.status==200) {
+          setJobPopup(true);
+        }
         setCreated(response.data);
         console.log(response.data);
         console.log(response.request);
@@ -58,7 +63,7 @@ const Model = (props) => {
   useEffect(() => {
     console.log("başlıyor")
 
-    axios.get('https:/localhost:7162/api/rooms')
+    axios.get('http://localhost:7162/api/rooms')
       .then(response => {
         setRooms(response.data)
       })
@@ -70,7 +75,7 @@ const Model = (props) => {
 
   }, []);
   useEffect(() => {
-    axios.get('https://localhost:7162/api/usermeeting/getByMeeting', {
+    axios.get('http://localhost:7162/api/usermeeting/getByMeeting', {
       params: {
         startDate: new Date(fromDate),
         endDate: new Date(toDate)
@@ -90,12 +95,13 @@ const Model = (props) => {
   return (props.trigger) ? (
     <div className='popup'>
       <div className="popup-inner">
+      <JobDone trigger={jobPopup} setTrigger={setJobPopup} job={"Created"} setUpperTrigger={props.setTrigger}  />
         <button className="close-btn" onClick={() => props.setTrigger(false)}>X</button>
         <form className="meeting" onSubmit={handleSubmit}>
           <label htmlFor="text" className="meeting-label">Title</label>
           <input type="text" name="title" onChange={(e) => setTitle(e.target.value)} id="title" placeholder='Title' value={title} />
           <label htmlFor="text" className="meeting-label">Starting Date</label>
-          <input type="datetime-local" name="fromDate" onChange={(e) => setFromDate(e.target.value)} dafault value={new Date().toISOString().slice(0, -8)} min={new Date().toISOString().slice(0, -8)} id="fromDate" />
+          <input type="datetime-local" name="fromDate" onChange={(e) => setFromDate(e.target.value)}  dafaultValue={new Date().toISOString().slice(0, -8)} min={new Date().toISOString().slice(0, -8)} id="fromDate" />
           <label htmlFor="text" className="meeting-label">Ending Date</label>
           <input type="datetime-local" name="toDate" onChange={(e) => setToDate(e.target.value)} id="toDate" min={fromDate}  defaultValue={fromDate}/>
           <label htmlFor="text" className="meeting-label">Users</label>

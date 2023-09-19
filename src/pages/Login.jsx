@@ -19,24 +19,34 @@ export const Login = (props) => {
     }
     const get = () => {
         console.log("başlıyor")
+        const loginpayload = {
+            userName: user_name,
+            password: password
+        }
 
-        axios.post('https://localhost:7162/api/login', null, {
-            params: {
-                user_name,
-                password
-            }
-        })
+        axios.post('http://localhost:7162/authorization/token', loginpayload)
             .then(response => {
-                setPosts(response.data);
-                console.log(response.data)
-                console.log(response)
-                if (response.status === 200) {
-                    navigate('/calendar');
+                const token = response.data.authorizationToken;
+                localStorage.setItem('token', token);
+                if (token) {
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 }
+                navigate('/calendar')
+                console.log(response.data)
+                // setPosts(response.data);
+                // console.log(response.data)
+                // console.log(response)
+                // if (response.status === 200) {
+                //     navigate('/calendar');
+                // }
             })
             .catch(error => {
+
+                window.alert('Kullanıcı Adı Veya şifre Yanlıi')
                 console.error(error);
             });
+
+
 
         /**
 "{\"errors\":{\"title\":[\"The title field is required.\"]},\"type\":\"https://tools.ietf.org/html/rfc7231#section-6.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"traceId\":\"00-a1c4e93978cc7c6522d780f7347b29c7-09915add67e245ff-00\"}"
@@ -47,9 +57,8 @@ responseType
 : 
 "" */
     }
-    useEffect(() => {
 
-    }, []);
+
     return (
         <div className="Main">
             <ul>
